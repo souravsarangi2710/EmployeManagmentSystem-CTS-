@@ -1,0 +1,77 @@
+
+
+<!DOCTYPE html>  <!-- Write the thymeleaf namespace -->
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>List Employees</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+
+body{
+	background-color:aquamarine;
+}
+
+
+</style>
+
+</head>
+
+<body>
+	<div  class="container">
+		<h2>List Employees</h2>
+		
+		<hr/>
+		
+		<a th:href="@{/addEmployeeForm}" class="btn btn-primary mb-2">Add Employee</a>
+		
+		<!--	Details of Employee shown here	-->
+		<a th:href="@{/showEmployeeDetails}" class="btn btn-primary mb-2">Show Employee Details</a>
+		
+		<!--to add the task details-->
+		<a th:href="@{/addTaskForm}" class="btn btn-primary mb-2">Add Task Details</a>
+		
+		<!--to show the task details-->
+		<a th:href="@{/showTaskDetails}" class="btn btn-primary mb-2">Show Task Details</a>
+		
+		
+		
+		<table class="table table-bordered table-striped">
+			<thead>
+			
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					
+					
+					<th>Actions</th>
+				</tr>
+			</thead>
+			
+			<body>
+				<tr th:each="employee: ${employees}">
+					<td th:text="${employee.id}"></td>
+					
+					<td th:text="${employee.name}"></td>
+					
+					
+				
+					<td>
+					<a th:href="@{/showUpdateForm(employeeId=${employee.id})}" class="btn btn-info">Update</a>
+					
+					<!--	show Employee Details by Id	-->
+					<a th:href="@{/showInformation(employeeId=${employee.id})}" class="btn btn-info">Details</a>
+					
+					<a th:href="@{/deleteEmployee(employeeId=${employee.id})}" class="btn btn-danger ml-2">Delete</a>
+				
+				
+					</td>
+				
+				
+				</tr>
+			
+			</body>
+		</table>
+	</div>
+</body>
+</html>

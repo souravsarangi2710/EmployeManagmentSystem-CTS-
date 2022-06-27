@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>  <!-- Write the thymeleaf namespace -->
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Employees</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+body{
+	background: url([[@{/image/register.jpg}]]) ;
+}
+h2{
+	color:red;
+}
+
+</style>
+
+</head>
+<body>
+	<div  class="container bd">
+		
+		<h2>Add Employee</h2>
+		<hr/>
+		<form th:action="@{/saveEmployee}" th:object="${employee}" method="POST">
+			
+			
+			
+			
+			
+			
+			
+			
+			<input type="text" th:field="*{name}" placeholder="Enter full name" class="form-control col-4 mb-4"/>
+			
+			
+			
+			
+			
+			<input type="email" th:field="*{email}" placeholder="Enter email" class="form-control col-4 mb-4"/>
+			
+			
+			
+			
+			<input type="text" th:field="*{department}" placeholder="Enter department" class="form-control col-4 mb-4"/>
+			
+			
+			<input type="text" th:field="*{salary}" placeholder="Enter salary" class="form-control col-4 mb-4"/>
+			
+			<input type="text" th:field="*{doj}" placeholder="Enter date of joining" class="form-control col-4 mb-4"/>
+			
+			<input type="text" th:field="*{dob}" placeholder="Enter date of birth" class="form-control col-4 mb-4"/>
+			
+			<input type="text" th:field="*{address}" placeholder="Enter address" class="form-control col-4 mb-4"/>
+			
+			<input type="text" th:field="*{city}" placeholder="Enter city" class="form-control col-4 mb-4"/>
+			
+			<input type="text" th:field="*{phoneNumber}" placeholder="Enter phone number" class="form-control col-4 mb-4"/>
+			
+			<input type="text" th:field="*{password}" placeholder="Enter password" class="form-control col-4 mb-4"/>
+			
+			
+			<button class="btn btn-primary" type="submit">Save</button>
+			
+			
+			
+			<input   type="hidden" th:field="*{id}" />
+		</form>
+		
+		<hr/>
+		
+		
+		<!-- It will go back to list -->"
+		<a th:href="@{/list}">Back to List</a>
+
+
+
+
+
+
+
+		
+		
+	
+	</div>
+</body>
+</html>
